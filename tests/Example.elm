@@ -15,4 +15,7 @@ suite =
         , test "One word added" <|
             \_ ->
                 equal (diffWords "Hello" "Hello Joe!") [ NoChange "Hello", Added "Joe!" ]
+        , test "One word removed" <|
+            \_ ->
+                equal (diffWords "Hello Joe!" "Hello") [ NoChange "Hello", Removed "Joe!" ]
         ]
